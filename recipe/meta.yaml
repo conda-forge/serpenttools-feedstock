@@ -6,22 +6,22 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/serpentTools-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/serpentTools-{{ version }}.tar.gz
   sha256: da6fbd0db6a55538720a1150cbd146c94dd5049f75b8bd1f9eb83c30c213360b
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8,<3.12
+    - python {{ python_min }}
     - setuptools >=61.0
     - setuptools-scm >=6.2
     - pip
   run:
-    - python >=3.8,<3.12
+    - python >={{ python_min }},<3.12
     - numpy >=1.16.0
     - matplotlib-base >=2.2.3,!=3.3.4
     - pyyaml >=5.1.1
@@ -33,6 +33,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/CORE-GATECH-GROUP/serpent-tools
