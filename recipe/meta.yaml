@@ -16,12 +16,12 @@ build:
 
 requirements:
   host:
-    - python >=3.8,<3.12
+    - python {{ python_min }}
     - setuptools >=61.0
     - setuptools-scm >=6.2
     - pip
   run:
-    - python >=3.9,<3.14
+    - python >= {{ python_min }}
     - numpy >=1.16.0
     - matplotlib-base >=2.2.3,!=3.3.4
     - pyyaml >=5.1.1
@@ -32,6 +32,7 @@ test:
   commands:
     - pip check
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
