@@ -21,7 +21,7 @@ requirements:
     - setuptools-scm >=6.2
     - pip
   run:
-    - python >= {{ python_min }}
+    - python >={{ python_min }}
     - numpy >=1.16.0
     - matplotlib-base >=2.2.3,!=3.3.4
     - pyyaml >=5.1.1
